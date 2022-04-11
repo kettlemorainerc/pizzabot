@@ -58,7 +58,7 @@ public abstract class CANLineSubsystem<T> implements Subsystem {
     }
 
     public static final class Pizza extends CANLineSubsystem<PizzabotDriveModule> {
-        protected Pizza(PizzabotDriveModule.ChassisPosition position) {
+        public Pizza(PizzabotDriveModule.ChassisPosition position) {
             super(new PizzabotDriveModule(position), position.CAN_ID);
         }
 

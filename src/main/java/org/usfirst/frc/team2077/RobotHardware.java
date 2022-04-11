@@ -9,20 +9,20 @@ import org.usfirst.frc.team2077.sensors.*;
 import org.usfirst.frc.team2077.subsystems.*;
 
 public class RobotHardware {
-    public final CANLineSubsystem.SparkNeo FRONT_LEFT_WHEEL = new CANLineSubsystem.SparkNeo(SparkNeoDriveModule.DrivePosition.FRONT_LEFT);
-    public final CANLineSubsystem.SparkNeo FRONT_RIGHT_WHEEL = new CANLineSubsystem.SparkNeo(SparkNeoDriveModule.DrivePosition.FRONT_RIGHT);
-    public final CANLineSubsystem.SparkNeo BACK_LEFT_WHEEL = new CANLineSubsystem.SparkNeo(SparkNeoDriveModule.DrivePosition.BACK_LEFT);
-    public final CANLineSubsystem.SparkNeo BACK_RIGHT_WHEEL = new CANLineSubsystem.SparkNeo(SparkNeoDriveModule.DrivePosition.BACK_RIGHT);
-    public final CANLineSubsystem.SparkNeo[] WHEELS = new CANLineSubsystem.SparkNeo[] {
+    public final CANLineSubsystem.Pizza FRONT_LEFT_WHEEL = new CANLineSubsystem.Pizza(PizzabotDriveModule.ChassisPosition.FRONT_LEFT);
+    public final CANLineSubsystem.Pizza FRONT_RIGHT_WHEEL = new CANLineSubsystem.Pizza(PizzabotDriveModule.ChassisPosition.FRONT_RIGHT);
+    public final CANLineSubsystem.Pizza BACK_LEFT_WHEEL = new CANLineSubsystem.Pizza(PizzabotDriveModule.ChassisPosition.BACK_LEFT);
+    public final CANLineSubsystem.Pizza BACK_RIGHT_WHEEL = new CANLineSubsystem.Pizza(PizzabotDriveModule.ChassisPosition.BACK_RIGHT);
+    public final CANLineSubsystem.Pizza[] WHEELS = new CANLineSubsystem.Pizza[] {
         FRONT_LEFT_WHEEL, FRONT_RIGHT_WHEEL, BACK_LEFT_WHEEL, BACK_RIGHT_WHEEL
     };
 
-    public final CANLineSubsystem.SparkNeo SHOOTER = new CANLineSubsystem.SparkNeo(SparkNeoDriveModule.DrivePosition.SHOOTER);
-    public final CANLineSubsystem.Talon PRIMER = new CANLineSubsystem.Talon(6);
-    public final CANLineSubsystem.Talon OBTAINER = new CANLineSubsystem.Talon(7);
+//    public final CANLineSubsystem.SparkNeo SHOOTER = new CANLineSubsystem.Pizza(SparkNeoDriveModule.DrivePosition.SHOOTER);
+//    public final CANLineSubsystem.Talon PRIMER = new CANLineSubsystem.Talon(6);
+//    public final CANLineSubsystem.Talon OBTAINER = new CANLineSubsystem.Talon(7);
 
-    public final CANLineSubsystem.Talon CLIMBER_LEFT = new CANLineSubsystem.Talon(8);
-    public final CANLineSubsystem.Talon CLIMBER_RIGHT = new CANLineSubsystem.Talon(9);
+//    public final CANLineSubsystem.Talon CLIMBER_LEFT = new CANLineSubsystem.Talon(8);
+//    public final CANLineSubsystem.Talon CLIMBER_RIGHT = new CANLineSubsystem.Talon(9);
 
     public final Subsystem heading = new Subsystem() {};
     public final Subsystem position = new Subsystem() {};
@@ -44,8 +44,8 @@ public class RobotHardware {
         chassis = new MecanumChassis(this);
     }
 
-    public CANLineSubsystem.SparkNeo getSparkNeoWheel(MecanumMath.WheelPosition position) {
-        for(CANLineSubsystem.SparkNeo wheel : WHEELS) if(wheel.motor.getWheelPosition() == position) return wheel;
+    public CANLineSubsystem.Pizza getSparkNeoWheel(MecanumMath.WheelPosition position) {
+        for(CANLineSubsystem.Pizza wheel : WHEELS) if(wheel.motor.getWheelPosition() == position) return wheel;
 
         return null;
     }
