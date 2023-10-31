@@ -27,11 +27,11 @@ public class DriveXboxController extends XboxController implements DriveStick {
     }
 
     @Override public double getNorth() {
-        return DriveStick.adjustInputSensitivity(getLeftY(), driveDeadBand, driveExponent);
+        return -DriveStick.adjustInputSensitivity(getLeftY(), driveDeadBand, driveExponent);
     }
 
     @Override public double getEast() {
-        return DriveStick.adjustInputSensitivity(getLeftX(), driveDeadBand, driveExponent);
+        return -DriveStick.adjustInputSensitivity(getLeftX(), driveDeadBand, driveExponent);
     }
 
     @Override public double getRotation() {

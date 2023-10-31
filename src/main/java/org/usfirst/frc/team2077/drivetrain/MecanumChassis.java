@@ -115,12 +115,12 @@ public class MecanumChassis extends AbstractChassis {
 				));
 		velocityMeasured = mecanumMath.forward(wheelVelocities);
 
-		// Adjust velocities by analog limits
-		double limit = (ACCELERATION_LIMIT_RANGE * settings.get(AnalogSettings.Limit.ACCELERATION)) + ACCELERATION_LIMIT_MIN;
-		for(VelocityDirection d : VelocityDirection.values()) {
-			velocitySet.compute(d, (k, v) -> v * limit);
-			velocityMeasured.compute(d, (k, v) -> v * limit);
-		}
+//		// Adjust velocities by analog limits
+//		double limit = (ACCELERATION_LIMIT_RANGE * settings.get(AnalogSettings.Limit.ACCELERATION)) + ACCELERATION_LIMIT_MIN;
+//		for(VelocityDirection d : VelocityDirection.values()) {
+//			velocitySet.compute(d, (k, v) -> v * limit);
+//			velocityMeasured.compute(d, (k, v) -> v * limit);
+//		}
 
 		// TODO: E/W velocities are consistently lower than those calculated from wheel speeds.
 		// TODO: Measure actual vs measured E/W distances and insert an adjustment factor here.

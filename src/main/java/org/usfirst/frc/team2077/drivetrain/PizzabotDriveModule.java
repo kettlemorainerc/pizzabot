@@ -149,6 +149,25 @@ public class PizzabotDriveModule implements DriveModuleIF {
         return encoder.getRate() * SECONDS_PER_MINUTE / ENCODER_COUNTS_PER_REVOLUTION;
     }
 
+    /*
+    //Should return whether the wheel is above a torque limit based on a difference between the RPM set and the encoder reading for RPM.
+    private double previousRPM;
+    private boolean TorqueLimiter(){
+
+        double actualRPM = getWheelRPM(); //encoder.getRate();
+        double givenRPM = talon.get() * MOTOR_RPM_LIMIT;
+        double dRPM = actualRPM - previousRPM;
+        previousRPM = actualRPM;
+        if(
+            Math.abs(actualRPM - previousRPM) < threshold1 &&
+            givenRPM > threshold2 + actualRPM
+        ){
+            return true;
+        }
+        return false;
+    }
+    */
+
     private double getMotorRPM() {
         // getQuadratureVelocity() returns counts per 100ms.
         return talon.getSensorCollection().getQuadratureVelocity() * SRX_SENSOR_UNITS_PER_SECOND * SECONDS_PER_MINUTE / ENCODER_COUNTS_PER_REVOLUTION;
@@ -539,8 +558,8 @@ public class PizzabotDriveModule implements DriveModuleIF {
     public static enum ChassisPosition {
         FRONT_RIGHT(MecanumMath.WheelPosition.NORTH_EAST, 1, 10, 11, false),
         BACK_RIGHT(MecanumMath.WheelPosition.SOUTH_EAST, 2, 12, 13, false),
-        BACK_LEFT(MecanumMath.WheelPosition.SOUTH_WEST, 4, 20, 21, true),
-        FRONT_LEFT(MecanumMath.WheelPosition.NORTH_WEST, 3, 18, 19, true);
+        BACK_LEFT(MecanumMath.WheelPosition.SOUTH_WEST, 3, 18, 19, true),
+        FRONT_LEFT(MecanumMath.WheelPosition.NORTH_WEST, 4, 20, 21, true);
 
         public final int CAN_ID, ENCODER_A_CHANNEL, ENCODER_B_CHANNEL;
         public final boolean REVERSED;
